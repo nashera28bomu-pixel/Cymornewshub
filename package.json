@@ -1,0 +1,24 @@
+{
+  "name": "cymor-news-hub",
+  "version": "1.0.0",
+  "description": "Cymor News Hub - Kenya and world news, summarized by AI, with push notifications.",
+  "main": "server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "generate-vapid": "node scripts/generateVapidKeys.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.6.0",
+    "node-cron": "^3.0.3",
+    "rss-parser": "^3.13.0",
+    "web-push": "^3.6.7"
+  }
+}
