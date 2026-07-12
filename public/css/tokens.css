@@ -1,0 +1,60 @@
+/*
+  Cymor News Hub - design tokens
+  Signature: a scrolling "wire" ticker styled after newsroom teletype feeds.
+  Palette avoids the cliché warm-cream+terracotta and black+neon combos -
+  ink navy + stone paper + press-red for breaking, teletype green for "live".
+*/
+:root {
+  --ink: #14161B;         /* near-black navy ink, body text on paper */
+  --ink-soft: #3A3D45;
+  --paper: #E7E4D8;       /* cool stone paper, not warm cream */
+  --paper-raised: #F4F2E8;
+  --rule: #C9C5B4;        /* hairline rule color */
+  --press-red: #C21E2C;   /* breaking news / masthead accent */
+  --press-red-dim: #8f1620;
+  --wire-green: #2F7A56;  /* live / verified tag */
+  --kenya-black: #14161B;
+  --kenya-red: #C21E2C;
+  --kenya-green: #2F7A56;
+
+  --font-display: 'Fraunces', 'Georgia', serif;
+  --font-body: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  --radius-s: 2px;
+  --radius-m: 4px;
+
+  --shadow-card: 0 1px 0 rgba(20,22,27,0.06), 0 6px 16px rgba(20,22,27,0.06);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+::selection { background: var(--press-red); color: var(--paper-raised); }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 2px solid var(--press-red);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
