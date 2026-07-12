@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cymor News Hub — Newsroom</title>
+<link rel="manifest" href="/manifest.json" />
+<link rel="icon" href="/icons/icon-192.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/tokens.css" />
+<link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+
+<div class="app-shell">
+
+  <header class="topbar">
+    <div class="topbar__row">
+      <span class="topbar__brand"><a href="/">Cymor News</a></span>
+      <button class="icon-btn" id="bell-btn" title="Notification settings" aria-haspopup="dialog">
+        🔔<span class="dot"></span>
+      </button>
+    </div>
+
+    <div class="region-toggle" role="tablist" aria-label="News region">
+      <button type="button" data-region="" aria-pressed="true">All</button>
+      <button type="button" data-region="kenya" aria-pressed="false">Kenya</button>
+      <button type="button" data-region="world" aria-pressed="false">World</button>
+    </div>
+
+    <div class="category-tabs" id="category-tabs" role="tablist" aria-label="Category">
+      <button type="button" data-category="" aria-pressed="true">Top</button>
+      <button type="button" data-category="politics" aria-pressed="false">Politics</button>
+      <button type="button" data-category="business" aria-pressed="false">Business</button>
+      <button type="button" data-category="sports" aria-pressed="false">Sports</button>
+      <button type="button" data-category="technology" aria-pressed="false">Technology</button>
+      <button type="button" data-category="health" aria-pressed="false">Health</button>
+      <button type="button" data-category="entertainment" aria-pressed="false">Entertainment</button>
+    </div>
+  </header>
+
+  <div class="wire-ticker app" aria-label="Latest breaking headlines">
+    <div class="wire-ticker__track" id="ticker-track">
+      <span><span class="label">WIRE</span>Loading latest headlines&hellip;</span>
+    </div>
+  </div>
+
+  <main class="feed" id="feed">
+    <div class="empty-state">Loading the newsroom&hellip;</div>
+  </main>
+
+  <div class="load-more" id="load-more" hidden>
+    <button type="button" id="load-more-btn">Load more stories</button>
+  </div>
+
+</div>
+
+<!-- Article detail bottom sheet -->
+<div class="sheet-backdrop" id="article-backdrop"></div>
+<div class="sheet" id="article-sheet" role="dialog" aria-modal="true" aria-label="Article detail">
+  <div class="sheet__handle"></div>
+  <button class="sheet__close" id="article-close" aria-label="Close">✕</button>
+  <div id="article-content"></div>
+</div>
+
+<!-- Notification preferences bottom sheet -->
+<div class="sheet-backdrop" id="prefs-backdrop"></div>
+<div class="sheet prefs-sheet" id="prefs-sheet" role="dialog" aria-modal="true" aria-label="Notification settings">
+  <div class="sheet__handle"></div>
+  <button class="sheet__close" id="prefs-close" aria-label="Close">✕</button>
+  <div class="sheet__body">
+    <h3>Notifications</h3>
+    <p class="hint">Get an alert the moment breaking news lands. Pick what matters to you — leave everything unselected to get all of it.</p>
+
+    <div class="pref-group">
+      <label class="group-label">Region</label>
+      <div class="pref-chips" id="prefs-regions">
+        <button type="button" data-value="kenya" aria-pressed="false">Kenya</button>
+        <button type="button" data-value="world" aria-pressed="false">World</button>
+      </div>
+    </div>
+
+    <div class="pref-group">
+      <label class="group-label">Category</label>
+      <div class="pref-chips" id="prefs-categories">
+        <button type="button" data-value="politics" aria-pressed="false">Politics</button>
+        <button type="button" data-value="business" aria-pressed="false">Business</button>
+        <button type="button" data-value="sports" aria-pressed="false">Sports</button>
+        <button type="button" data-value="technology" aria-pressed="false">Technology</button>
+        <button type="button" data-value="health" aria-pressed="false">Health</button>
+        <button type="button" data-value="world" aria-pressed="false">World top</button>
+      </div>
+    </div>
+
+    <button class="prefs-submit" id="prefs-enable-btn">Turn on notifications</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="/js/app.js"></script>
+<script src="/js/notifications.js"></script>
+</body>
+</html>
